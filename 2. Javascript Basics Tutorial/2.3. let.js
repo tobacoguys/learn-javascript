@@ -48,3 +48,53 @@ test();
 
 //Ví dụ
 //Trong ví dụ dưới đây, chúng tôi khởi tạo biến bool với giá trị 'true'. Sau đó, chúng tôi khai báo các biến c và d bằng cách sử dụng từ khóa let và var trong khối if
+//Chúng ta in giá trị của biến x và y bên trong khối if. Chúng ta không thể truy cập biến x bên ngoài khối if vì nó có phạm vi bị chặn, nhưng chúng ta có thể truy cập biến y bên ngoài khối if và bên trong khối hàm vì nó có phạm vi hàm
+
+function test() {
+    let bool = true;
+    if (bool) {
+        let x = 30;
+
+        var y = 40;
+        document.write("x = " + x + ", y = " + y + "<br/>")
+    }
+    // x không thể truy cập tại đây
+    document.write("y = " + y + "<br/>")
+}
+test();
+
+
+//Khai báo lại các biến trong JavaScript
+//Không thể khai báo lại các biến được khai báo bằng từ khóa let trong cùng 1 khối. Tuy nhiên, có thể khai báo các biến có cùng tên vào các khối khác nhau bằng cùng 1 hàm.
+
+//Ví dụ
+//Trong ví dụ dưới đây, các biến được khai báo bằng let không thể khai báo lại trong cùng 1 khối, nhưng các biến được khai báo bằng từ khóa var có thể khai báo trong cùng 1 khối.
+
+function test(){
+    if(1){
+        let m = 70;
+        //let m = 80; //Không thể khai báo với let
+        var n = 80;
+        var n = 90; //có thể khai báo với var
+        document.write("m = " + m + ", n = " + n);
+    }
+}
+test();
+
+//Nâng hạ biến thiên
+//Hành vi nâng của JavaScript di chuyển khai báo các biến lên đầu mã. Từ khóa let không hỗ trợ nâng, nhưng từ khóa var hỗ trợ lưu trữ.
+
+//Ví dụ
+//Trong ví dụ, bạn có thể thấy chúng ta có thể khởi tạo và in giá trị của biến n trước khi khai báo nó vì nó được khai báo bằng từ khóa var
+
+function test(){
+    //Không hỗ trợ nâng bởi từ khóa let
+    //m = 100;
+    //document.write("m = " + m + "<br/>");
+    //let m;
+
+    n = 50;
+    document.write("n = " + n + "<br/>")
+    var n;
+}
+test();
